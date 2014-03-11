@@ -10,7 +10,6 @@ import java.nio.ByteOrder;
 public class EvdevAbsolute {
 	
 	public final static int UP = 1, DOWN = -1, NONE = 0;
-	
 	private static final int SHORT_MAX_UNSIGNED = 0xFFFF;
 	private static final int BYTE_MAX_UNSIGNED = 0xFF;
 	private final static int ABS_OFFSET = 0x40;
@@ -23,7 +22,7 @@ public class EvdevAbsolute {
 	
 	private boolean reverse;
 	private boolean signed;
-	
+
 	public EvdevAbsolute(String filename, int axis, boolean reverse) {
 		ByteBuffer buffer = ByteBuffer.allocate(6*4);
 		buffer.order(ByteOrder.nativeOrder());

@@ -17,6 +17,7 @@ import java.nio.channels.FileChannel;
  * @author Iwan Timmer
  */
 public class EvdevHandler implements Runnable {
+
 	
 	private static KeyboardTranslator translator;
 	
@@ -33,7 +34,6 @@ public class EvdevHandler implements Runnable {
 	private NvConnection conn;
 	private FileChannel deviceInput;
 	private ByteBuffer inputBuffer;
-	
 	private boolean loggingInput;
 	private GamepadMapping mapping;
 	
@@ -63,6 +63,7 @@ public class EvdevHandler implements Runnable {
 		
 		translator = new KeyboardTranslator(conn);
 	}
+
 	private void logInput(String msg) {
 		if (loggingInput)
 			System.out.println(msg);
@@ -156,7 +157,7 @@ public class EvdevHandler implements Runnable {
 					if (value==EvdevConstants.KEY_PRESSED)
 						conn.sendMouseButtonDown(mouseButton);
 					else if (value==EvdevConstants.KEY_RELEASED)
-						conn.sendMouseButtonUp(mouseButton);						
+						conn.sendMouseButtonUp(mouseButton);
 				} else {
 					if (gamepadButton != 0) {
 						if (value==EvdevConstants.KEY_PRESSED) {
